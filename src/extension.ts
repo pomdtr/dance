@@ -297,7 +297,7 @@ export class Extension implements vscode.Disposable {
       return
 
     const lines: number[] = [],
-          selections = editor.selections
+          selections = [editor.selection]
 
     let needsCopy = false
 
