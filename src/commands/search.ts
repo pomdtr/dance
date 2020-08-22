@@ -149,7 +149,7 @@ function registerSearchCommand(command: Command, direction: Direction, extend: E
       const selections = initialSelections.map(selection => selection.selection(editor.document))
 
       let regex: RegExp
-      const flags = (isMultilineRegExp(input) ? 'm' : '') + (direction === Backward ? 'g' : '')
+      const flags = (isMultilineRegExp(input) ? 'm' : '') + (direction === Backward ? 'g' : '') + 'i'
 
       try {
         regex = new RegExp(input, flags)
@@ -265,7 +265,7 @@ function registerNextCommand(command: Command, direction: Direction, replace: bo
     if (regexStr === undefined || regexStr.length === 0)
       return
 
-    const regex = new RegExp(regexStr[0], 'g'),
+    const regex = new RegExp(regexStr[0], 'gi'),
           selections = editor.selections
     const searchState = { selectionBehavior, regex }
     const helper = SelectionHelper.for(editorState, searchState)
