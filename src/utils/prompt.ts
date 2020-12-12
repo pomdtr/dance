@@ -38,13 +38,13 @@ export function keypress(cancellationToken?: vscode.CancellationToken): Thenable
           subscription.dispose()
           done = true
 
-          resolve(undefined)
+          resolve("")
         }
       })
     } catch {
       vscode.window.showErrorMessage('Unable to listen to keyboard events; is an extension overriding the "type" command (e.g VSCodeVim)?')
 
-      resolve(undefined)
+      resolve("")
     }
   })
 }
