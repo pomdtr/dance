@@ -232,7 +232,8 @@ registerCommand(Command.splitLines, CommandFlags.ChangeSelections, ({ editor }) 
     }
 
     // Add end line.
-    newSelections.unshift(endSelection)
+    if (endSelection.end.character !== 0)
+      newSelections.unshift(endSelection)
 
     // Restore direction of each line.
     if (isReversed) {
