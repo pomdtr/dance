@@ -5,7 +5,7 @@ import { commands, Command, additionalKeyBindings } from './commands'
 // Key bindings
 // ============================================================================
 
-const keybindings: {command: string, key: string, when: string, args?: any}[] = additionalKeyBindings.concat()
+const keybindings: { command: string, key: string, when: string, args?: any }[] = additionalKeyBindings.concat()
 
 for (const command of Object.values(commands)) {
   for (const { key, when } of command.keybindings) {
@@ -16,25 +16,25 @@ for (const command of Object.values(commands)) {
 // Menus
 // ============================================================================
 
-const menus: Record<string, {items: Record<string, {text: string, command: string, args?: any[]}>}> = {
+const menus: Record<string, { items: Record<string, { text: string, command: string, args?: any[] }> }> = {
   object: {
     items: {
       'b()': { command: Command.objectsPerformSelection, args: [{ object: 'parens' }], text: 'parenthesis block' },
       'B{}': { command: Command.objectsPerformSelection, args: [{ object: 'braces' }], text: 'braces block' },
       'r[]': { command: Command.objectsPerformSelection, args: [{ object: 'brackets' }], text: 'brackets block' },
       'a<>': { command: Command.objectsPerformSelection, args: [{ object: 'angleBrackets' }], text: 'angle block' },
-      'Q"' : { command: Command.objectsPerformSelection, args: [{ object: 'doubleQuoteString' }], text: 'double quote string' },
+      'Q"': { command: Command.objectsPerformSelection, args: [{ object: 'doubleQuoteString' }], text: 'double quote string' },
       'q\'': { command: Command.objectsPerformSelection, args: [{ object: 'singleQuoteString' }], text: 'single quote string' },
-      'g`' : { command: Command.objectsPerformSelection, args: [{ object: 'graveQuoteString' }], text: 'grave quote string' },
-      'w'  : { command: Command.objectsPerformSelection, args: [{ object: 'word' }], text: 'word' },
-      'W'  : { command: Command.objectsPerformSelection, args: [{ object: 'WORD' }], text: 'WORD' },
-      's'  : { command: Command.objectsPerformSelection, args: [{ object: 'sentence' }], text: 'sentence' },
-      'p'  : { command: Command.objectsPerformSelection, args: [{ object: 'paragraph' }], text: 'paragraph' },
-      ' '  : { command: Command.objectsPerformSelection, args: [{ object: 'whitespaces' }], text: 'whitespaces' },
-      'i'  : { command: Command.objectsPerformSelection, args: [{ object: 'indent' }], text: 'indent' },
-      'n'  : { command: Command.objectsPerformSelection, args: [{ object: 'number' }], text: 'number' },
-      'u'  : { command: Command.objectsPerformSelection, args: [{ object: 'argument' }], text: 'argument' },
-      'c'  : { command: Command.objectsPerformSelection, args: [{ object: 'custom' }], text: 'custom object desc' },
+      'g`': { command: Command.objectsPerformSelection, args: [{ object: 'graveQuoteString' }], text: 'grave quote string' },
+      'w': { command: Command.objectsPerformSelection, args: [{ object: 'word' }], text: 'word' },
+      'W': { command: Command.objectsPerformSelection, args: [{ object: 'WORD' }], text: 'WORD' },
+      's': { command: Command.objectsPerformSelection, args: [{ object: 'sentence' }], text: 'sentence' },
+      'p': { command: Command.objectsPerformSelection, args: [{ object: 'paragraph' }], text: 'paragraph' },
+      ' ': { command: Command.objectsPerformSelection, args: [{ object: 'whitespaces' }], text: 'whitespaces' },
+      'i': { command: Command.objectsPerformSelection, args: [{ object: 'indent' }], text: 'indent' },
+      'n': { command: Command.objectsPerformSelection, args: [{ object: 'number' }], text: 'number' },
+      'u': { command: Command.objectsPerformSelection, args: [{ object: 'argument' }], text: 'argument' },
+      'c': { command: Command.objectsPerformSelection, args: [{ object: 'custom' }], text: 'custom object desc' },
     },
   },
 }
@@ -65,7 +65,7 @@ const pkg = {
   name: 'dance',
   displayName: 'Dance',
   description: 'Make those cursors dance with Kakoune-inspired keybindings.',
-  version: '0.3.1',
+  version: '0.3.2',
   license: 'ISC',
 
   publisher: 'gregoire',
@@ -76,7 +76,7 @@ const pkg = {
 
   repository: {
     type: 'git',
-    url : 'https://github.com/71/dance.git',
+    url: 'https://github.com/71/dance.git',
   },
 
   readme: 'README.md',
@@ -93,13 +93,13 @@ const pkg = {
   },
 
   scripts: {
-    'generate'         : 'ts-node ./commands/generate.ts && ts-node package.ts',
+    'generate': 'ts-node ./commands/generate.ts && ts-node package.ts',
     'vscode:prepublish': 'yarn run generate && yarn run compile',
-    'compile'          : 'tsc -p ./',
-    'watch'            : 'tsc -watch -p ./',
-    'test'             : 'yarn run compile && node ./out/test/run.js',
-    'package'          : 'vsce package',
-    'publish'          : 'vsce publish',
+    'compile': 'tsc -p ./',
+    'watch': 'tsc -watch -p ./',
+    'test': 'yarn run compile && node ./out/test/run.js',
+    'package': 'vsce package',
+    'publish': 'vsce publish',
   },
 
   devDependencies: {
